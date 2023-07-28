@@ -30,6 +30,10 @@ const app = Vue.createApp({
         toggleShowBooks() {
             this.isVisible = !this.isVisible;
         },
+
+        toggleFav(book) {
+            book.isFav = !book.isFav
+        },
     },
 });
 
