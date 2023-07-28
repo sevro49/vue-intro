@@ -1,6 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
+            isVisible: true,
             title: "The Final Empire",
             author: "Brandon Sanderson",
             age: 45,
@@ -8,9 +9,8 @@ const app = Vue.createApp({
     },
 
     methods: {
-        changeTitle(title) {
-            // this.title = "Words of Randiance";
-            this.title = title;
+        toggleShowBooks(){
+            this.isVisible = !this.isVisible;
         },
     },
 });

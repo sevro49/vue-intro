@@ -10,11 +10,17 @@
         <h1>Hello Vue</h1>
 
         <div id="app">
-            <p>{{ title }} - {{ author }} - {{ age }}</p>
+            <button @click="toggleShowBooks">
+                <span v-if="isVisible">Hide Books</span>
+                <!-- <span v-if="!isVisible">Show Books</span> -->
+                <span v-else>Show Books</span>
+            </button>
 
-            <button v-on:click="age++">Increase Age</button>
-            <button @click="age--">Decrease Age</button>
-            <div @click="changeTitle('Oathbringer')">Change Book title</div>
+            <div v-if="isVisible">
+                <p>{{ title }} - {{ author }} - {{ age }}</p>
+            </div>
+
+            <div v-show="isVisible">Currently Showing Books</div>
         </div>
 
 
