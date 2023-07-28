@@ -7,13 +7,32 @@
         <title>Learning Vue</title>
 
         <style>
-            .box{
-                padding: 100px 0;
-                width: 400px;
-                text-align: center;
-                background-color: #ddd;
-                margin: 20px;
-                display: inline-block;
+            body{
+                background: #eee;
+                max-width: 960px;
+                margin: 20px auto;
+            }
+
+            p, h3, ul{
+                margin: 0;
+                padding: 0;
+            }
+
+
+            li{
+                list-style-type: none;
+                background: #fff;
+                margin: 20px auto;
+                padding: 10px 20px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            li.fav{
+                background: #ff9ed2;
+                color: #fff;
             }
         </style>
 
@@ -24,13 +43,12 @@
         <div id="app">
             <button @click="toggleShowBooks">
                 <span v-if="isVisible">Hide Books</span>
-                <!-- <span v-if="!isVisible">Show Books</span> -->
                 <span v-else>Show Books</span>
             </button>
 
             <div v-if="isVisible">
                 <ul>
-                    <li v-for="book in books">
+                    <li v-for="book in books" :class="{ fav: book.isFav}">
                         <img :src="book.img" :alt="book.title">
                         <h3> {{book.title}}</h3>
                         <p> {{book.author}}</p>
