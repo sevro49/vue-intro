@@ -5,6 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <title>Learning Vue</title>
+
+        <style>
+            .box{
+                padding: 100px 0;
+                width: 400px;
+                text-align: center;
+                background-color: #ddd;
+                margin: 20px;
+                display: inline-block;
+            }
+        </style>
+
     </head>
     <body>
         <h1>Hello Vue</h1>
@@ -20,7 +32,10 @@
                 <p>{{ title }} - {{ author }} - {{ age }}</p>
             </div>
 
-            <div v-show="isVisible">Currently Showing Books</div>
+            <div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
+            <div class="box" @mouseleave="handleEvent">mouseleave (exit)</div>
+            <div class="box" @dblclick="handleEvent">double click</div>
+            <div class="box" @mousemove="handleMouseMove">Position - {{x}} - {{y}}</div>
         </div>
 
 
