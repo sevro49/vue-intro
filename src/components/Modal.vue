@@ -1,6 +1,9 @@
 <template>
     <div class="backdrop" @click.self="closeModal">
-        <div class="modal" :class="{ sale: theme === 'sale' }">
+        <div
+            class="modal"
+            :class="{ sale: theme === 'sale', finance: theme === 'finance' }"
+        >
             <slot></slot>
             <div class="actions">
                 <slot name="links"></slot>
@@ -52,7 +55,7 @@ export default {
     margin: 30px 0 10px 0;
 }
 
-.modal .actions a{
+.modal .actions a {
     color: #333;
     padding: 8px;
     border: 1px solid #eee;
@@ -66,9 +69,15 @@ export default {
     color: white;
 }
 
+.modal.finance {
+    background: goldenrod;
+    color: white;
+}
+
 .modal.sale h1,
 .modal.sale .actions,
-.modal.sale .actions a{
+.modal.sale .actions a,
+.modal.finance h1 {
     color: white;
 }
 </style>
